@@ -1,0 +1,13 @@
+# Python & Django
+__pycache__/
+*.py[cod]
+db.sqlite3
+
+# Environment & Secrets (CRITICAL FOR SONARCLOUD)
+.env
+.venv
+env/
+venv/
+
+# VS Code settings
+.vscode/
