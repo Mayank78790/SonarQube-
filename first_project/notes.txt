@@ -1,0 +1,24 @@
+- django-admin startproject project_name
+- python manage.py startapp app_name
+- python manage.py makemigrations
+- python manage.py migrate
+- python manage.py sqlmigrate app_name file_code
+- project_name
+    - project_name
+        - __init__.py
+        - urls.py
+        - asgi.py
+        - wsgi.py
+        - settings.py
+    - manage.py
+
+    - app_name
+        - migrations
+            - __init__.py
+        - __init__.py
+        - admin.py
+        - apps.py
+        - models.py
+        - tests.py
+        - views.py
+    - db.sqlite3

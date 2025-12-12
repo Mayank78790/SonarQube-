@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTML Input Types — Practice</title>
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:24px;background:#f7fafc;color:#0f172a}
+    .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 6px 20px rgba(2,6,23,0.08);max-width:900px;margin:0 auto}
+    h1{font-size:20px;margin-bottom:6px}
+    p.lead{margin-top:0;color:#475569}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;align-items:center}
+    label{font-weight:600;font-size:13px}
+    .hint{font-size:12px;color:#64748b}
+    input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="search"], input[type="password"], input[type="number"], input[type="date"], input[type="time"], input[type="month"], input[type="week"], input[type="datetime-local"], input[type="color"], input[type="range"] {
+      width:100%;padding:8px 10px;border-radius:8px;border:1px solid #e2e8f0;background:#fbfeff;box-sizing:border-box
+    }
+    .full{grid-column:1/ -1}
+    .controls{display:flex;gap:8px;align-items:center}
+    .preview{border-radius:8px;padding:10px;background:#f1f5f9}
+    .img-btn{border:none;background:none;padding:0}
+    footer{font-size:13px;color:#64748b;margin-top:12px}
+    @media (max-width:700px){form .row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>HTML Input Types — Practice</h1>
+    <p class="lead">A single page demonstrating many HTML <code>&lt;input&gt;</code> types. Try interacting with fields and press <strong>Show values</strong>.</p>
+
+    <form id="demoForm">
+      <div class="row">
+        <div>
+          <label for="textInput">Text</label>
+          <input id="textInput" type="text" name="textInput" placeholder="Type something..." value="Hello">
+          <div class="hint">Simple text input.</div>
+        </div>
+
+        <div>
+          <label for="emailInput">Email</label>
+          <input id="emailInput" type="email" name="emailInput" placeholder="name@example.com" required>
+          <div class="hint">Validation will require an email format.</div>
+        </div>
+
+        <div>
+          <label for="passwordInput">Password</label>
+          <input id="passwordInput" type="password" name="passwordInput" placeholder="password">
+          <div class="hint">Hidden characters.</div>
+        </div>
+
+        <div>
+          <label for="telInput">Telephone</label>
+          <input id="telInput" type="tel" name="telInput" placeholder="+91 98765 43210">
+          <div class="hint">Use pattern attribute for custom validation if needed.</div>
+        </div>
+
+        <div>
+          <label for="urlInput">URL</label>
+          <input id="urlInput" type="url" name="urlInput" placeholder="https://example.com">
+          <div class="hint">Requires a valid URL format when used with `required`.</div>
+        </div>
+
+        <div>
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="search" name="searchInput" placeholder="Search...">
+          <div class="hint">Search-specific input (browser may style differently).</div>
+        </div>
+
+        <div>
+          <label for="numberInput">Number</label>
+          <input id="numberInput" type="number" name="numberInput" min="0" max="100" step="1" value="10">
+          <div class="hint">Use min, max and step attributes.</div>
+        </div>
+
+        <div>
+          <label for="rangeInput">Range</label>
+          <input id="rangeInput" type="range" name="rangeInput" min="0" max="100" value="25">
+          <div class="hint">Drag to change value. Current: <span id="rangeVal">25</span></div>
+        </div>
+
+        <div>
+          <label for="dateInput">Date</label>
+          <input id="dateInput" type="date" name="dateInput" value="2025-10-25">
+        </div>
+
+        <div>
+          <label for="timeInput">Time</label>
+          <input id="timeInput" type="time" name="timeInput" value="14:30">
+        </div>
+
+        <div>
+          <label for="datetimeInput">Datetime-local</label>
+          <input id="datetimeInput" type="datetime-local" name="datetimeInput" value="2025-10-25T14:30">
+        </div>
+
+        <div>
+          <label for="monthInput">Month</label>
+          <input id="monthInput" type="month" name="monthInput" value="2025-10">
+        </div>
+
+        <div>
+          <label for="weekInput">Week</label>
+          <input id="weekInput" type="week" name="weekInput" value="2025-W43">
+        </div>
+
+        <div>
+          <label for="colorInput">Color</label>
+          <input id="colorInput" type="color" name="colorInput" value="#ff0000">
+        </div>
+
+        <div>
+          <label>Checkbox</label>
+          <div class="controls">
+            <input id="check1" type="checkbox" name="checkGroup" value="opt1" checked>
+            <label for="check1">Option 1</label>
+          </div>
+          <div class="controls">
+            <input id="check2" type="checkbox" name="checkGroup" value="opt2">
+            <label for="check2">Option 2</label>
+          </div>
+        </div>
+
+        <div>
+          <label>Radio buttons</label>
+          <div class="controls">
+            <input id="radioA" type="radio" name="radios" value="A" checked>
+            <label for="radioA">A</label>
+            <input id="radioB" type="radio" name="radios" value="B">
+            <label for="radioB">B</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="fileInput">File</label>
+          <input id="fileInput" type="file" name="fileInput" accept="image/*">
+          <div class="hint">Accepts images only (try selecting a file to see the name below).</div>
+        </div>
+
+        <div>
+          <label for="hiddenInput">Hidden</label>
+          <input id="hiddenInput" type="hidden" name="hiddenInput" value="hidden-value">
+          <div class="hint">Hidden inputs are not visible on page but submitted with the form. (This one is shown here for demo.)</div>
+        </div>
+
+        <div class="full">
+          <label>Image input (clicking it acts like a submit)</label>
+          <div>
+            <button type="button" class="img-btn" id="fakeImageBtn" title="Image button">
+              <img src="https://via.placeholder.com/80x40?text=Send" alt="send" style="border-radius:6px;">
+            </button>
+            <span class="hint">This demonstrates an <code>input type=\"image\"</code> alternative using a button with an image.</span>
+          </div>
+        </div>
+
+        <div class="full">
+          <label for="filePreview">File preview / selected file name</label>
+          <div class="preview" id="filePreview">No file selected</div>
+        </div>
+
+        <div class="full">
+          <label for="controls">Form controls</label>
+          <div style="display:flex;gap:8px;align-items:center">
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+            <input type="button" value="Show values" id="showBtn">
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+    <footer>Tip: open your browser devtools to inspect each element and try changing attributes like <code>required</code>, <code>min</code>, <code>max</code>, and <code>accept</code>.</footer>
+  </div>
+
+  <script>
+    const range = document.getElementById('rangeInput');
+    const rangeVal = document.getElementById('rangeVal');
+    range.addEventListener('input', ()=> rangeVal.textContent = range.value);
+
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('filePreview');
+
+    fileInput.addEventListener('change', ()=>{
+      const f = fileInput.files[0];
+      if(!f){ preview.textContent = 'No file selected'; return }
+      preview.textContent = `Selected file: ${f.name} — ${Math.round(f.size/1024)} KB`;
+      if(f.type.startsWith('image/')){
+        const reader = new FileReader();
+        reader.onload = e => {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.style.maxWidth = '160px';
+          img.style.display = 'block';
+          img.style.marginTop = '8px';
+          preview.appendChild(img);
+        }
+        reader.readAsDataURL(f);
+      }
+    });
+
+    document.getElementById('showBtn').addEventListener('click', ()=>{
+      const form = document.getElementById('demoForm');
+      const data = new FormData(form);
+      // Collect values into an object for display
+      const obj = {};
+      for(const [k,v] of data.entries()){
+        // multiple checkboxes with same name will appear once per selected
+        if(obj[k] !== undefined){
+          if(!Array.isArray(obj[k])) obj[k] = [obj[k]];
+          obj[k].push(v);
+        } else obj[k] = v;
+      }
+      alert('Form values:\n' + JSON.stringify(obj, null, 2));
+    });
+
+    // Prevent actual submit
+    document.getElementById('demoForm').addEventListener('submit', e=>{
+      e.preventDefault();
+      alert('Submit intercepted — form not sent. Use "Show values" to inspect data.');
+    });
+
+    // Fake image button demonstrates clickable image behavior
+    document.getElementById('fakeImageBtn').addEventListener('click', ()=>{
+      alert('Image button clicked (this simulates input type="image").');
+    });
+  </script>
+</body>
+</html>
